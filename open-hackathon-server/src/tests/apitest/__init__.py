@@ -3,7 +3,7 @@ import json
 import logging
 from datetime import timedelta, datetime
 
-from hackathon import app
+from hackathon import app, constants
 from hackathon.hmongo.models import UserToken
 from hackathon.hmongo.database import drop_db, setup_db
 
@@ -109,7 +109,7 @@ class ApiTestCase(object):
                                expire_date=token_expire_date,
                                issue_date=token_issue_date)
         user_token.save()
-        self.client.update_headers(dict(token=user_token.token))
+        self.client.update_headers({constants.HTTP_HEADER.AUTHORIZATION: user_token.token})
         return user_token
 
     @classmethod

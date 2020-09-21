@@ -55,10 +55,12 @@ def create_super_user(username, password):
     add_super_user(username, username, password)
     click.echo('Success Add A Super Count. ({0}@{1})'.format(username, password))
 
+
 @manager.command
 def create_test_user(username, password):
     add_super_user(username, username, password, is_super=False)
     click.echo('Success Add A Test Count. ({0}@{1})'.format(username, password))
+
 
 if __name__ == "__main__":
     manager.run()

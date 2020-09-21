@@ -5,8 +5,9 @@ from hackathon.hmongo.models import UserHackathon
 ADMIN_ONE_USERNAME = "admin_one"
 ADMIN_ONE_ENCODE_PASSWORD = '0b92d6bab65b9b4cbd746a3effc516a7'
 
+
 class TestAdminApi(ApiTestCase):
-    
+
     def test_login_admin(self, admin1):
         # test login by DB
         data = {
@@ -45,13 +46,12 @@ class TestAdminApi(ApiTestCase):
         payload = self.client.get("/api/user/profile")
         assert "error" in payload and payload["error"]["code"] == 401
 
-
     def test_create_hackathon(self, admin1):
         # ok
         self.login(admin1)
         data = {
-                "name": 'test',
-                "display_name": 'test'
+            "name": 'test',
+            "display_name": 'test'
         }
         payload = self.client.post("/api/admin/hackathon", json_data=data)
         assert payload
@@ -65,7 +65,7 @@ class TestAdminApi(ApiTestCase):
 
         payload_offline = self.client.post("/api/admin/hackathon/offline", json_data=data)
         assert payload_offline
-    
+
     def test_update_hackathon_config(self, admin1):
         self.login(admin1)
 
@@ -94,7 +94,7 @@ class TestAdminApi(ApiTestCase):
         }
         payload = self.client.delete('/api/admin/hackathon/organizer', json_data=data)
         assert payload
-    
+
     def test_list_hackathon_admin(self, admin1):
         # not found!
         # self.login(admin1)
@@ -122,12 +122,12 @@ class TestAdminApi(ApiTestCase):
         }
         payload = self.client.put("/api/admin/hackathon", json_data=data)
         assert payload
-        
+
     def test_delete_hackathon_admin(self, admin1):
         # ok but not found json file!
         self.login(admin1)
         data = {
-            'name':'test'
+            'name': 'test'
         }
         payload = self.client.delete('/api/admin/hackathon/administrator', json_data=data)
         assert payload
@@ -155,7 +155,7 @@ class TestAdminApi(ApiTestCase):
         # ok but not found json file
         self.login(admin1)
         data = {
-            'name':'test'
+            'name': 'test'
         }
         payload = self.client.post('/api/admin/hostserver', json_data=data)
         assert payload
@@ -178,16 +178,14 @@ class TestAdminApi(ApiTestCase):
         payload = self.client.delete('/api/admin/hostserver', json_data=data)
         assert payload
 
-
     def test_get_host_server(self, admin1):
         self.login(admin1)
-        
 
     def test_create_hackathon_notice(self, admin1):
         # ok
         self.login(admin1)
         data = {
-            'content':'test'
+            'content': 'test'
         }
         payload = self.client.post('/api/admin/hackathon/notice', json_data=data)
         assert payload
@@ -196,7 +194,7 @@ class TestAdminApi(ApiTestCase):
         # ok
         self.login(admin1)
         data = {
-            'id':str(admin1.id)
+            'id': str(admin1.id)
         }
         payload = self.client.put('/api/admin/hackathon/notice', json_data=data)
         assert payload
@@ -205,7 +203,7 @@ class TestAdminApi(ApiTestCase):
         # ok
         self.login(admin1)
         data = {
-            'id':str(admin1.id)
+            'id': str(admin1.id)
         }
         payload = self.client.delete('/api/admin/hackathon/notice', json_data=data)
         assert payload

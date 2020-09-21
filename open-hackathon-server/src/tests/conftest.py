@@ -43,6 +43,7 @@ def admin1():
     admin_one.save()
     return admin_one
 
+
 @pytest.fixture(scope="class")
 def default_template(user1):
     tmpl = Template(
