@@ -1,8 +1,7 @@
 import pytest
 
 from hackathon.constants import VE_PROVIDER, TEMPLATE_STATUS
-from hackathon.hmongo.models import User, Template, UserHackathon
-from hackathon.hmongo.database import add_super_user
+from hackathon.hmongo.models import User, Template, UserHackathon, Hackathon
 
 
 @pytest.fixture(scope="class")
@@ -42,6 +41,21 @@ def admin1():
     admin_one.set_password("test_password")
     admin_one.save()
     return admin_one
+
+
+@pytest.fixture(scope="class")
+def hackathon1(user1):
+    new_hack = Hackathon(
+        name="hackathon1",
+        display_name="hackathon for test",
+    )
+    new_hack.save()
+
+    admin = UserHackathon(user=user1,
+                          hackathon=new_hack,
+                          remark='creator')
+    admin.save()
+    return new_hack
 
 
 @pytest.fixture(scope="class")

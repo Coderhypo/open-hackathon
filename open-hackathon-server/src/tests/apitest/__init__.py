@@ -112,6 +112,9 @@ class ApiTestCase(object):
         self.client.update_headers({constants.HTTP_HEADER.AUTHORIZATION: user_token.token})
         return user_token
 
+    def set_hackathon_name(self, hackathon_name):
+        self.client.update_headers({constants.HTTP_HEADER.HACKATHON_NAME: hackathon_name})
+
     @classmethod
     def setup_class(cls):
         cls.log.info("init database")

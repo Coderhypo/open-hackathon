@@ -315,7 +315,7 @@ class TeamResource(HackathonResource):
     @hackathon_name_required
     def post(self):
         args = request.get_json()
-        return team_manager.create_team(args)
+        return team_manager.create_default_team(args)
 
     @token_required
     @hackathon_name_required
