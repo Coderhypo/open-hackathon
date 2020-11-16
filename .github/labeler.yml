@@ -6,10 +6,6 @@ document:
   - documents/*
   - documents/**/*
 
-ohp-client:
-  - open-hackathon-client/*
-  - open-hackathon-client/**/*
-
 ohp-server:
-  - open-hackathon-server/*
-  - open-hackathon-server/**/*
+  - src/*
+  - src/**/*

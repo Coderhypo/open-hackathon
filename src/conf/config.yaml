@@ -1,0 +1,71 @@
+server_endpoint: http://localhost:15000
+debug: false
+db:
+  server: localhost
+  port: 27017
+  dbname: hackathon
+oauth:
+  enable: true
+  enable_github: false
+  enable_qq: false
+  enable_webchat: false
+  enable_webbo: false
+  enable_live: false
+  provider: AUTHING
+  authing:
+    client_id: ""
+    state: ""
+  github:
+    client_id: ""
+    client_secret: ""
+  qq:
+    client_id: ""
+    client_secret: ""
+    meta_content: ""
+    state: ""
+  wechat:
+    app_id: ""
+    secret: ""
+    state: ""
+  weibo:
+    client_id: ""
+    client_secret: ""
+    meta_content: ""
+  live:
+    client_id: ""
+    client_secret: ""
+storage:
+  type: "local"
+  size_limit_kilo_bytes: 5120
+notify:
+  enable_smtp: false
+  enable_voice_verify: false
+  voice_verify_privider: "rong_lian"
+  enable_sms: false
+  sms_privider: "china_telecom"
+  smtp:
+    host: ""
+    port: 587
+    default_sender: ""
+    receivers_forced: []
+    username: ""
+    password: ""
+  rong_lian:
+    account_sid: ""
+    auth_token: ""
+    app_id: ""
+    server_url: "https://app.cloopen.com"
+    server_port: 8883
+    soft_version: "2013-12-26"
+    play_time: 3
+    display_number: ""
+    response_url: ""
+    language: "zh"
+  china_telecom:
+    server_url: "http://api.189.cn/v2/emp/templateSms/sendSms"
+    app_id: ""
+    app_secret: ""
+    access_token: ""
+guacamole:
+  host: guacamole
+  port: 8080

@@ -32,7 +32,7 @@ spec:
         - containerPort: 15000
         volumeMounts:
           - name: config
-            mountPath: /opt/open-hackathon/open-hackathon-server/src/hackathon
+            mountPath: /opt/open-hackathonsrc/src/hackathon
       volumes:
       - name: config
         configMap:
